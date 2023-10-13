@@ -2,10 +2,10 @@ package com.da.whatstodo.featureNote.data.source
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.da.whatstodo.featureNote.domain.model.Note
+import com.da.whatstodo.featureNote.data.model.NoteDto
 
 @Database(
-    entities = [Note::class],
+    entities = [NoteDto::class],
     version = 1
 )
 abstract class NoteDatabase : RoomDatabase() {

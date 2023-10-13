@@ -5,7 +5,7 @@ import com.da.whatstodo.ui.theme.Colors
 
 enum class NotePriority(
     val importanceLevel: Int,
-    val color: Color
+    val color: Color,
 ) {
     Low(1, Colors.Priority.Low),
     Medium(2, Colors.Priority.Medium),

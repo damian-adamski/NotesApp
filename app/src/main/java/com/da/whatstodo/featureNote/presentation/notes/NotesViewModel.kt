@@ -33,7 +33,7 @@ class NotesViewModel @Inject constructor(
 
     fun onEvent(event: NotesEvent) {
         when(event) {
-            is NotesEvent.Order -> handleOrderNotes(event.noteOrder)
+            is NotesEvent.ChangeOrder -> handleOrderNotes(event.noteOrder)
             is NotesEvent.DeleteNote -> handleDeleteNote(event.note)
             NotesEvent.RestoreNote -> handleRestoreNote()
             NotesEvent.ToggleOrderSection -> handleToggleEvent()
