@@ -5,14 +5,14 @@ import com.da.whatstodo.featureNote.domain.model.exception.InvalidNoteException
 import com.da.whatstodo.featureNote.domain.repository.NoteRepository
 
 class AddNoteUseCase(
-    noteRepository: NoteRepository
+    private val noteRepository: NoteRepository
 ) {
 
     @Throws(InvalidNoteException::class)
     suspend operator fun invoke(note: Note) {
         if (note.title.isBlank()) throw InvalidNoteException.EmptyTitleException
-        if (note.content.isBlank()) throw InvalidNoteException.EmptyBodyException
+        if (note.content.isBlank()) throw InvalidNoteException.EmptyContentException
 
-
+        noteRepository.insertNote(note)
     }
 }

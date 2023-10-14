@@ -31,12 +31,12 @@ class NotesViewModel @Inject constructor(
         getNotes(NoteOrder.Date(OrderType.Descending))
     }
 
-    fun onEvent(event: NotesEvent) {
-        when(event) {
-            is NotesEvent.ChangeOrder -> handleOrderNotes(event.noteOrder)
-            is NotesEvent.DeleteNote -> handleDeleteNote(event.note)
-            NotesEvent.RestoreNote -> handleRestoreNote()
-            NotesEvent.ToggleOrderSection -> handleToggleEvent()
+    fun onAction(action: NotesAction) {
+        when(action) {
+            is NotesAction.ChangeOrder -> handleOrderNotes(action.noteOrder)
+            is NotesAction.DeleteNote -> handleDeleteNote(action.note)
+            NotesAction.RestoreNote -> handleRestoreNote()
+            NotesAction.ToggleOrderSection -> handleToggleEvent()
         }
     }
 

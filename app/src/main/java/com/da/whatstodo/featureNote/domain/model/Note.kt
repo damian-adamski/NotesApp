@@ -10,7 +10,7 @@ data class Note(
     val date: OffsetDateTime,
     val color: Int,
     val priority: NotePriority,
-    val id: Int?
+    val id: Int? = null
 ) {
     companion object {
         val noteColors = Colors.NoteColors.run {

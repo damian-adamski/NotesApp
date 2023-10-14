@@ -79,7 +79,7 @@ fun NotesScreen(
                 )
                 IconButton(
                     onClick = {
-                        viewModel.onEvent(NotesEvent.ToggleOrderSection)
+                        viewModel.onAction(NotesAction.ToggleOrderSection)
                     }
                 ) {
                     Icon(
@@ -99,7 +99,7 @@ fun NotesScreen(
                         .padding(vertical = 16.dp),
                     noteOrder = state.noteOrder,
                     onOrderChange = { order ->
-                        viewModel.onEvent(NotesEvent.ChangeOrder(order))
+                        viewModel.onAction(NotesAction.ChangeOrder(order))
                     }
                 )
             }
@@ -117,14 +117,14 @@ fun NotesScreen(
 
                             },
                         onDeleteClick = {
-                            viewModel.onEvent(NotesEvent.DeleteNote(note))
+                            viewModel.onAction(NotesAction.DeleteNote(note))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
                                     message = "Note deleted",
                                     actionLabel = "Undo"
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
-                                    viewModel.onEvent(NotesEvent.RestoreNote)
+                                    viewModel.onAction(NotesAction.RestoreNote)
                                 }
                             }
                         }
